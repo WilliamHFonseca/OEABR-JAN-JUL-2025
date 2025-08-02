@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Inversión y Estrategia - OE Adult Brazil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .brand-blue { color: #0070f3; }
+        .brand-orange { color: #f96d00; }
+        .bg-brand-blue { background-color: #0070f3; }
+        .bg-brand-orange { background-color: #f96d00; }
+        
+        /* --- Animation Classes --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* --- Timeline Styling --- */
+        .timeline-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background-color: #e9ecef;
+            z-index: 0;
+        }
+        @media (min-width: 768px) {
+            .timeline-container::before {
+                left: 33.333333%; /* Aligns between the two main columns */
+            }
+        }
+        .timeline-item {
+            position: relative;
+        }
+        .timeline-dot {
+            position: absolute;
+            top: 1.25rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: white;
+            border: 4px solid #0070f3;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        .timeline-item:hover .timeline-dot {
+            transform: translateX(-50%) scale(1.2);
+        }
+        @media (min-width: 768px) {
+            .timeline-dot {
+                left: 33.333333%;
+            }
+        }
+        .info-card {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+            background-color: #ffffff;
+        }
+        .lang-btn {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="text-center py-12 px-4 bg-white shadow-lg reveal">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-2" data-lang-es="OE ADULT BRAZIL" data-lang-en="OE ADULT BRAZIL" data-lang-pt="OE ADULT BRAZIL">OE ADULT BRAZIL</h1>
+            <p class="text-lg md:text-xl text-gray-600" data-lang-es="Enero - Julio 2025" data-lang-en="January - July 2025" data-lang-pt="Janeiro - Julho 2025">Enero - Julio 2025</p>
+            <div id="lang-switcher" class="mt-8 space-x-2">
+                <button id="btn-es" onclick="switchLanguage('es')" class="lang-btn bg-brand-blue text-white font-semibold py-2 px-4 rounded-lg shadow">Español</button>
+                <button id="btn-en" onclick="switchLanguage('en')" class="lang-btn bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg shadow">English</button>
+                <button id="btn-pt" onclick="switchLanguage('pt')" class="lang-btn bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg shadow">Português</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="timeline-container">
+            
+            <!-- Enero -->
+            <section class="timeline-item mb-16 grid grid-cols-1 md:grid-cols-6 gap-4 reveal">
+                <div class="timeline-dot"></div>
+                <div class="md:col-span-2 md:text-right md:pr-8">
+                    <h2 class="text-4xl font-bold brand-blue" data-lang-es="Enero" data-lang-en="January" data-lang-pt="Janeiro">Enero</h2>
+                    <p class="text-xl font-semibold brand-orange mt-1" data-lang-es="Inversión TV: $318.1K" data-lang-en="TV Investment: $318.1K" data-lang-pt="Investimento em TV: $318.1K">Inversión TV: $318.1K</p>
+                    <i class="fas fa-rocket text-6xl text-blue-100 mt-4"></i>
+                </div>
+                <div class="md:col-span-4 md:pl-8 space-y-6">
+                    <article class="info-card bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalle de la Inversión y Estrategia' data-lang-en='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Investment and Strategy Details' data-lang-pt='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalhes do Investimento e Estratégia'><i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalle de la Inversión y Estrategia</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="El mes inició con una estrategia de inversión robusta, con un gasto en TV Cable de <strong>+3% vs. YOY</strong>. Al sumar una iniciativa de <strong>YouTube Brandlift</strong> por <strong>+$40K</strong>, la inversión offline total ascendió a <strong>+16% vs. YOY</strong>, quedando muy alineada al presupuesto en <strong>+1%</strong>. La distribución de la inversión, comparada con el año anterior, consistió en incrementar el gasto de <strong>lunes a viernes</strong> y disminuirlo los <strong>sábados y domingos</strong>." data-lang-en="The month began with a robust investment strategy, with a TV Cable spend of <strong>+3% vs. YOY</strong>. By adding a <strong>YouTube Brandlift</strong> initiative for <strong>+$40K</strong>, the total offline investment rose to <strong>+16% vs. YOY</strong>, staying closely aligned with the budget at <strong>+1%</strong>. The investment distribution, compared to the previous year, involved increasing spend from <strong>Monday to Friday</strong> and decreasing it on <strong>Saturdays and Sundays</strong>." data-lang-pt="O mês começou com uma estratégia de investimento robusta, com um gasto em TV a Cabo de <strong>+3% vs. YOY</strong>. Ao somar uma iniciativa de <strong>YouTube Brandlift</strong> de <strong>+$40K</strong>, o investimento offline total subiu para <strong>+16% vs. YOY</strong>, ficando bem alinhado ao orçamento em <strong>+1%</strong>. A distribuição do investimento, em comparação com o ano anterior, consistiu em aumentar o gasto de <strong>segunda a sexta-feira</strong> e diminuí-lo aos <strong>sábados e domingos</strong>.">El mes inició con una estrategia de inversión robusta, con un gasto en TV Cable de <strong>+3% vs. YOY</strong>. Al sumar una iniciativa de <strong>YouTube Brandlift</strong> por <strong>+$40K</strong>, la inversión offline total ascendió a <strong>+16% vs. YOY</strong>, quedando muy alineada al presupuesto en <strong>+1%</strong>. La distribución de la inversión, comparada con el año anterior, consistió en incrementar el gasto de <strong>lunes a viernes</strong> y disminuirlo los <strong>sábados y domingos</strong>.</p>
+                    </article>
+                    <article class="info-card bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-key mr-3 text-blue-400"></i>Iniciativas Clave del Mes' data-lang-en='<i class="fas fa-key mr-3 text-blue-400"></i>Key Initiatives of the Month' data-lang-pt='<i class="fas fa-key mr-3 text-blue-400"></i>Iniciativas Chave do Mês'><i class="fas fa-key mr-3 text-blue-400"></i>Iniciativas Clave del Mes</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Se activó la primera promoción <strong>JBL</strong> del año y un test de <strong>YouTube Brandlift</strong> en Sao Paulo (específicamente de <strong>lunes a viernes</strong>)." data-lang-en="The first <strong>JBL</strong> promotion of the year was activated, along with a <strong>YouTube Brandlift</strong> test in Sao Paulo (specifically from <strong>Monday to Friday</strong>)." data-lang-pt="A primeira promoção <strong>JBL</strong> do ano foi ativada e um teste de <strong>YouTube Brandlift</strong> em São Paulo foi realizado (especificamente de <strong>segunda a sexta-feira</strong>).">Se activó la primera promoción <strong>JBL</strong> del año y un test de <strong>YouTube Brandlift</strong> en Sao Paulo (específicamente de <strong>lunes a viernes</strong>).</p>
+                    </article>
+                    <article class="info-card bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análisis de Resultados' data-lang-en='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Results Analysis' data-lang-pt='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análise de Resultados'><i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análisis de Resultados</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="La estrategia fue exitosa en generar volumen, superando las expectativas de <strong>Branded Leads</strong> del Budget. Sin embargo, la rentabilidad final presentó una oportunidad de mejora, ya que la <strong>tasa de conversión</strong> fue menor a la estimada y el gasto en <strong>SEM-Brand</strong> fue tres veces mayor al presupuestado, lo que impactó el margen. El test de <strong>YT Brandlift</strong> mostró un efecto positivo en el engagement de los usuarios de Sao Paulo (más sesiones y submissions YOY), aunque no en métricas directas como impresiones o CTR." data-lang-en="The strategy was successful in generating volume, exceeding the <strong>Branded Leads</strong> expectations from the Budget. However, final profitability showed room for improvement, as the <strong>conversion rate</strong> was lower than estimated and the <strong>SEM-Brand</strong> spend was three times higher than budgeted, which impacted the margin. The <strong>YT Brandlift</strong> test showed a positive effect on user engagement in Sao Paulo (more sessions and submissions YOY), though not in direct metrics like impressions or CTR." data-lang-pt="A estratégia foi bem-sucedida em gerar volume, superando as expectativas de <strong>Branded Leads</strong> do Orçamento. No entanto, a rentabilidade final apresentou uma oportunidade de melhoria, já que a <strong>taxa de conversão</strong> foi menor que a estimada e o gasto com <strong>SEM-Brand</strong> foi três vezes maior que o orçado, o que impactou a margem. O teste de <strong>YT Brandlift</strong> mostrou um efeito positivo no engajamento dos usuários de São Paulo (mais sessões e submissões YOY), embora não em métricas diretas como impressões ou CTR.">La estrategia fue exitosa en generar volumen, superando las expectativas de <strong>Branded Leads</strong> del Budget. Sin embargo, la rentabilidad final presentó una oportunidad de mejora, ya que la <strong>tasa de conversión</strong> fue menor a la estimada y el gasto en <strong>SEM-Brand</strong> fue tres veces mayor al presupuestado, lo que impactó el margen. El test de <strong>YT Brandlift</strong> mostró un efecto positivo en el engagement de los usuarios de Sao Paulo (más sesiones y submissions YOY), aunque no en métricas directas como impresiones o CTR.</p>
+                    </article>
+                     <article class="info-card bg-green-50 p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-trophy mr-3 text-green-500"></i>Rendimiento Comparativo' data-lang-en='<i class="fas fa-trophy mr-3 text-green-500"></i>Comparative Performance' data-lang-pt='<i class="fas fa-trophy mr-3 text-green-500"></i>Desempenho Comparativo'><i class="fas fa-trophy mr-3 text-green-500"></i>Rendimiento Comparativo</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="A pesar de los desafíos de rentabilidad, nuestro <strong>Branded CMPs</strong> y margen fue mejor que Paid Social+Organic, total digital y total Blended." data-lang-en="Despite profitability challenges, our <strong>Branded CMPs</strong> and margin were better than Paid Social+Organic, total digital, and total Blended." data-lang-pt="Apesar dos desafios de rentabilidade, nossos <strong>Branded CMPs</strong> e margem foram melhores que Paid Social+Organic, digital total e Blended total.">A pesar de los desafíos de rentabilidad, nuestro <strong>Branded CMPs</strong> y margen fue mejor que Paid Social+Organic, total digital y total Blended.</p>
+                    </article>
+                    <article class="info-card bg-orange-50 p-6 rounded-lg shadow-sm border-l-4 border-orange-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusión Clave del Mes' data-lang-en='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Key Conclusion of the Month' data-lang-pt='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusão Chave do Mês'><i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusión Clave del Mes</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Se confirmó que una alta inversión apalancada en <strong>JBL</strong> es una fórmula efectiva para superar los objetivos de volumen. La principal oportunidad de mejora reside en optimizar la rentabilidad de ese volumen, enfocándose en la <strong>conversión</strong> y los costos de <strong>SEM</strong>." data-lang-en="It was confirmed that a high investment leveraged by <strong>JBL</strong> is an effective formula for exceeding volume targets. The main opportunity for improvement lies in optimizing the profitability of that volume, focusing on <strong>conversion</strong> and <strong>SEM</strong> costs." data-lang-pt="Confirmou-se que um alto investimento alavancado pela <strong>JBL</strong> é uma fórmula eficaz para superar as metas de volume. A principal oportunidade de melhoria reside em otimizar a rentabilidade desse volume, focando na <strong>conversão</strong> e nos custos de <strong>SEM</strong>.">Se confirmó que una alta inversión apalancada en <strong>JBL</strong> es una fórmula efectiva para superar los objetivos de volumen. La principal oportunidad de mejora reside en optimizar la rentabilidad de ese volumen, enfocándose en la <strong>conversión</strong> y los costos de <strong>SEM</strong>.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Febrero -->
+            <section class="timeline-item mb-16 grid grid-cols-1 md:grid-cols-6 gap-4 reveal">
+                <div class="timeline-dot"></div>
+                <div class="md:col-span-2 md:text-right md:pr-8">
+                    <h2 class="text-4xl font-bold brand-blue" data-lang-es="Febrero" data-lang-en="February" data-lang-pt="Fevereiro">Febrero</h2>
+                    <p class="text-xl font-semibold brand-orange mt-1" data-lang-es="Inversión TV: $292.3K" data-lang-en="TV Investment: $292.3K" data-lang-pt="Investimento em TV: $292.3K">Inversión TV: $292.3K</p>
+                    <i class="fas fa-balance-scale text-6xl text-blue-100 mt-4"></i>
+                </div>
+                <div class="md:col-span-4 md:pl-8 space-y-6">
+                    <article class="info-card bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalle de la Inversión y Estrategia' data-lang-en='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Investment and Strategy Details' data-lang-pt='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalhes do Investimento e Estratégia'><i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalle de la Inversión y Estrategia</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Se mantuvo un nivel de inversión estable, muy similar al del año anterior (<strong>-1% vs. YOY</strong>) y en línea con el Budget. La táctica principal fue impulsar los viernes de ciertas promociones con incrementos de inversión de <strong>+36% YOY</strong> en esos días." data-lang-en="A stable investment level was maintained, very similar to the previous year (<strong>-1% vs. YOY</strong>) and in line with the Budget. The main tactic was to boost Fridays of certain promotions with investment increases of <strong>+36% YOY</strong> on those days." data-lang-pt="Manteve-se um nível de investimento estável, muito semelhante ao do ano anterior (<strong>-1% vs. YOY</strong>) e em linha com o Orçamento. A tática principal foi impulsionar as sextas-feiras de certas promoções com aumentos de investimento de <strong>+36% YOY</strong> nesses dias.">Se mantuvo un nivel de inversión estable, muy similar al del año anterior (<strong>-1% vs. YOY</strong>) y en línea con el Budget. La táctica principal fue impulsar los viernes de ciertas promociones con incrementos de inversión de <strong>+36% YOY</strong> en esos días.</p>
+                    </article>
+                    <article class="info-card bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análisis de Resultados' data-lang-en='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Results Analysis' data-lang-pt='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análise de Resultados'><i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análisis de Resultados</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Esta estrategia produjo un volumen de <strong>Branded Leads</strong> muy similar al del año anterior, pero quedó un <strong>-10% por debajo</strong> del objetivo del Budget. Los indicadores asociados a ventas presentaron un desafío, ubicándose por encima de los objetivos de eficiencia (vs. YOY y vs. Budget), principalmente por el incremento en el gasto de <strong>SEM-Brand</strong> y una <strong>tasa de conversión</strong> más baja." data-lang-en="This strategy produced a volume of <strong>Branded Leads</strong> very similar to the previous year, but it fell <strong>-10% below</strong> the Budget target. Sales-related indicators presented a challenge, coming in above efficiency targets (vs. YOY and vs. Budget), mainly due to the increase in <strong>SEM-Brand</strong> spend and a lower <strong>conversion rate</strong>." data-lang-pt="Essa estratégia produziu um volume de <strong>Branded Leads</strong> muito semelhante ao do ano anterior, mas ficou <strong>-10% abaixo</strong> da meta do Orçamento. Os indicadores associados a vendas apresentaram um desafio, ficando acima das metas de eficiência (vs. YOY e vs. Orçamento), principalmente pelo aumento no gasto com <strong>SEM-Brand</strong> e uma <strong>taxa de conversão</strong> mais baixa.">Esta estrategia produjo un volumen de <strong>Branded Leads</strong> muy similar al del año anterior, pero quedó un <strong>-10% por debajo</strong> del objetivo del Budget. Los indicadores asociados a ventas presentaron un desafío, ubicándose por encima de los objetivos de eficiencia (vs. YOY y vs. Budget), principalmente por el incremento en el gasto de <strong>SEM-Brand</strong> y una <strong>tasa de conversión</strong> más baja.</p>
+                    </article>
+                    <article class="info-card bg-green-50 p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-trophy mr-3 text-green-500"></i>Rendimiento Comparativo' data-lang-en='<i class="fas fa-trophy mr-3 text-green-500"></i>Comparative Performance' data-lang-pt='<i class="fas fa-trophy mr-3 text-green-500"></i>Desempenho Comparativo'><i class="fas fa-trophy mr-3 text-green-500"></i>Rendimiento Comparativo</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Nuestro <strong>Branded CMPs</strong> y margen fue mejor que Paid Social+Organic, total digital y total Blended." data-lang-en="Our <strong>Branded CMPs</strong> and margin were better than Paid Social+Organic, total digital, and total Blended." data-lang-pt="Nossos <strong>Branded CMPs</strong> e margem foram melhores que Paid Social+Organic, digital total e Blended total.">Nuestro <strong>Branded CMPs</strong> y margen fue mejor que Paid Social+Organic, total digital y total Blended.</p>
+                    </article>
+                    <article class="info-card bg-orange-50 p-6 rounded-lg shadow-sm border-l-4 border-orange-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusión Clave del Mes' data-lang-en='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Key Conclusion of the Month' data-lang-pt='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusão Chave do Mês'><i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusión Clave del Mes</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Se aprendió que mantener una inversión similar a la del año anterior no es suficiente para alcanzar los nuevos y más ambiciosos objetivos del Budget, evidenciando la necesidad de estrategias de <strong>mayor impacto</strong> o <strong>mejoras en la eficiencia</strong> para cerrar esa brecha." data-lang-en="It was learned that maintaining an investment level similar to the previous year is not enough to meet the new and more ambitious Budget targets, highlighting the need for higher-impact strategies or efficiency improvements to close that gap." data-lang-pt="Aprendeu-se que manter um investimento semelhante ao do ano anterior não é suficiente para atingir as novas e mais ambiciosas metas do Orçamento, evidenciando a necessidade de estratégias de <strong>maior impacto</strong> ou <strong>melhoras na eficiência</strong> para fechar essa lacuna.">Se aprendió que mantener una inversión similar a la del año anterior no es suficiente para alcanzar los nuevos y más ambiciosos objetivos del Budget, evidenciando la necesidad de estrategias de <strong>mayor impacto</strong> o <strong>mejoras en la eficiencia</strong> para cerrar esa brecha.</p>
+                    </article>
+                </div>
+            </section>
+            
+            <!-- Marzo -->
+            <section class="timeline-item mb-16 grid grid-cols-1 md:grid-cols-6 gap-4 reveal">
+                <div class="timeline-dot"></div>
+                <div class="md:col-span-2 md:text-right md:pr-8">
+                    <h2 class="text-4xl font-bold brand-blue" data-lang-es="Marzo" data-lang-en="March" data-lang-pt="Março">Marzo</h2>
+                    <p class="text-xl font-semibold brand-orange mt-1" data-lang-es="Inversión TV: $287.7K" data-lang-en="TV Investment: $287.7K" data-lang-pt="Investimento em TV: $287.7K">Inversión TV: $287.7K</p>
+                    <i class="fas fa-podcast text-6xl text-blue-100 mt-4"></i>
+                </div>
+                <div class="md:col-span-4 md:pl-8 space-y-6">
+                    <article class="info-card bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalle de la Inversión y Estrategia' data-lang-en='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Investment and Strategy Details' data-lang-pt='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalhes do Investimento e Estratégia'><i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalle de la Inversión y Estrategia</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="El mes presentó una reducción de inversión (<strong>-14% vs. YOY</strong> y <strong>-8% vs. Budget</strong>), originada por la decisión de no redistribuir el presupuesto de los canales de Disney/Fox que cerraron. Se lanzó el podcast <strong>Ticaracaticast</strong> (<strong>+$3.3K</strong>)." data-lang-en="The month saw an investment reduction (<strong>-14% vs. YOY</strong> and <strong>-8% vs. Budget</strong>), resulting from the decision not to reallocate the budget from the closed Disney/Fox channels. The <strong>Ticaracaticast</strong> podcast was launched (<strong>+$3.3K</strong>)." data-lang-pt="O mês apresentou uma redução de investimento (<strong>-14% vs. YOY</strong> e <strong>-8% vs. Orçamento</strong>), originada pela decisão de não redistribuir o orçamento dos canais Disney/Fox que fecharam. Foi lançado o podcast <strong>Ticaracaticast</strong> (<strong>+$3.3K</strong>).">El mes presentó una reducción de inversión (<strong>-14% vs. YOY</strong> y <strong>-8% vs. Budget</strong>), originada por la decisión de no redistribuir el presupuesto de los canales de Disney/Fox que cerraron. Se lanzó el podcast <strong>Ticaracaticast</strong> (<strong>+$3.3K</strong>).</p>
+                    </article>
+                    <article class="info-card bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análisis de Resultados' data-lang-en='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Results Analysis' data-lang-pt='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análise de Resultados'><i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análisis de Resultados</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Los <strong>Branded Leads</strong> decrecieron en una proporción similar a la de la inversión a nivel YOY. El podcast presentó una excelente acogida, aportando, a través de su UTM, el <strong>10% de los leads totales</strong> de Brasil durante su día de lanzamiento. A pesar de este éxito y del valioso insight de la inversión, el resultado global vs. Budget se mantuvo como un área de oportunidad por los factores recurrentes de conversión y gasto en SEM." data-lang-en="<strong>Branded Leads</strong> decreased in a proportion similar to the YOY investment level. The podcast was very well received, contributing, through its UTM, <strong>10% of the total leads</strong> in Brazil on its launch day. Despite this success and the valuable investment insight, the overall result vs. Budget remained an area of opportunity due to recurring factors of conversion and SEM spend." data-lang-pt="Os <strong>Branded Leads</strong> diminuíram em proporção semelhante à do investimento em nível YOY. O podcast teve uma excelente recepção, contribuindo, através de sua UTM, com <strong>10% do total de leads</strong> do Brasil no dia do lançamento. Apesar desse sucesso e do valioso insight do investimento, o resultado geral vs. Orçamento permaneceu como uma área de oportunidade devido aos fatores recorrentes de conversão e gastos com SEM.">Los <strong>Branded Leads</strong> decrecieron en una proporción similar a la de la inversión a nivel YOY. El podcast presentó una excelente acogida, aportando, a través de su UTM, el <strong>10% de los leads totales</strong> de Brasil durante su día de lanzamiento. A pesar de este éxito y del valioso insight de la inversión, el resultado global vs. Budget se mantuvo como un área de oportunidad por los factores recurrentes de conversión y gasto en SEM.</p>
+                    </article>
+                    <article class="info-card bg-green-50 p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-trophy mr-3 text-green-500"></i>Rendimiento Comparativo' data-lang-en='<i class="fas fa-trophy mr-3 text-green-500"></i>Comparative Performance' data-lang-pt='<i class="fas fa-trophy mr-3 text-green-500"></i>Desempenho Comparativo'><i class="fas fa-trophy mr-3 text-green-500"></i>Rendimiento Comparativo</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Nuestro <strong>Branded CMPs</strong> y margen fue mejor que Paid Social+Organic, total digital y total Blended." data-lang-en="Our <strong>Branded CMPs</strong> and margin were better than Paid Social+Organic, total digital, and total Blended." data-lang-pt="Nossos <strong>Branded CMPs</strong> e margem foram melhores que Paid Social+Organic, digital total e Blended total.">Nuestro <strong>Branded CMPs</strong> y margen fue mejor que Paid Social+Organic, total digital y total Blended.</p>
+                    </article>
+                    <article class="info-card bg-orange-50 p-6 rounded-lg shadow-sm border-l-4 border-orange-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusión Clave del Mes' data-lang-en='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Key Conclusion of the Month' data-lang-pt='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusão Chave do Mês'><i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusión Clave del Mes</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="El mes proveyó la evidencia más clara hasta la fecha de una <strong>fuerte correlación</strong> entre la inversión en TV y el volumen de leads, mientras que la iniciativa de <strong>podcast</strong> se reveló como un nuevo canal prometedor para la generación de interés y prospectos." data-lang-en="The month provided the clearest evidence to date of a <strong>strong correlation</strong> between TV investment and lead volume, while the <strong>podcast</strong> initiative emerged as a promising new channel for generating interest and prospects." data-lang-pt="O mês forneceu a evidência mais clara até o momento de uma <strong>forte correlação</strong> entre o investimento em TV e o volume de leads, enquanto a iniciativa de <strong>podcast</strong> se revelou um novo canal promissor para gerar interesse e prospects.">El mes proveyó la evidencia más clara hasta la fecha de una <strong>fuerte correlación</strong> entre la inversión en TV y el volumen de leads, mientras que la iniciativa de <strong>podcast</strong> se reveló como un nuevo canal prometedor para la generación de interés y prospectos.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Abril -->
+            <section class="timeline-item mb-16 grid grid-cols-1 md:grid-cols-6 gap-4 reveal">
+                <div class="timeline-dot"></div>
+                <div class="md:col-span-2 md:text-right md:pr-8">
+                    <h2 class="text-4xl font-bold brand-blue" data-lang-es="Abril" data-lang-en="April" data-lang-pt="Abril">Abril</h2>
+                    <p class="text-xl font-semibold brand-orange mt-1" data-lang-es="Inversión TV: $277.8K" data-lang-en="TV Investment: $277.8K" data-lang-pt="Investimento em TV: $277.8K">Inversión TV: $277.8K</p>
+                    <i class="fas fa-star text-6xl text-blue-100 mt-4"></i>
+                </div>
+                <div class="md:col-span-4 md:pl-8 space-y-6">
+                    <article class="info-card bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalle de la Inversión y Estrategia' data-lang-en='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Investment and Strategy Details' data-lang-pt='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalhes do Investimento e Estratégia'><i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalle de la Inversión y Estrategia</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="La inversión offline total se ubicó en <strong>-13% vs. YOY</strong>. Se ejecutó la segunda promoción <strong>JBL</strong> y se continuó con los podcasts." data-lang-en="Total offline investment was at <strong>-13% vs. YOY</strong>. The second <strong>JBL</strong> promotion was executed, and the podcasts continued." data-lang-pt="O investimento offline total ficou em <strong>-13% vs. YOY</strong>. A segunda promoção <strong>JBL</strong> foi executada e os podcasts continuaram.">La inversión offline total se ubicó en <strong>-13% vs. YOY</strong>. Se ejecutó la segunda promoción <strong>JBL</strong> y se continuó con los podcasts.</p>
+                    </article>
+                    <article class="info-card bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análisis de Resultados' data-lang-en='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Results Analysis' data-lang-pt='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análise de Resultados'><i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análisis de Resultados</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Se confirmó la tendencia de marzo, con una caída de leads YOY proporcional a la reducción de la inversión. <strong>JBL</strong> demostró nuevamente su poder, entregando indicadores saludables. Los resultados de los podcasts fueron contradictorios y su influencia, difícil de aislar al coincidir con JBL." data-lang-en="The trend from March was confirmed, with a YOY lead drop proportional to the investment reduction. <strong>JBL</strong> once again demonstrated its power, delivering healthy indicators. The podcast results were contradictory, and their influence was difficult to isolate as it coincided with JBL." data-lang-pt="Confirmou-se a tendência de março, com uma queda de leads YOY proporcional à redução do investimento. A <strong>JBL</strong> demonstrou novamente seu poder, entregando indicadores saudáveis. Os resultados dos podcasts foram contraditórios e sua influência, difícil de isolar por coincidir com a JBL.">Se confirmó la tendencia de marzo, con una caída de leads YOY proporcional a la reducción de la inversión. <strong>JBL</strong> demostró nuevamente su poder, entregando indicadores saludables. Los resultados de los podcasts fueron contradictorios y su influencia, difícil de aislar al coincidir con JBL.</p>
+                    </article>
+                    <article class="info-card bg-green-50 p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-trophy mr-3 text-green-500"></i>Rendimiento Comparativo' data-lang-en='<i class="fas fa-trophy mr-3 text-green-500"></i>Comparative Performance' data-lang-pt='<i class="fas fa-trophy mr-3 text-green-500"></i>Desempenho Comparativo'><i class="fas fa-trophy mr-3 text-green-500"></i>Rendimiento Comparativo</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Nuestro <strong>Branded CMPs</strong> y margen fue mejor que Paid Social+Organic, total digital y total Blended." data-lang-en="Our <strong>Branded CMPs</strong> and margin were better than Paid Social+Organic, total digital, and total Blended." data-lang-pt="Nossos <strong>Branded CMPs</strong> e margem foram melhores que Paid Social+Organic, digital total e Blended total.">Nuestro <strong>Branded CMPs</strong> y margen fue mejor que Paid Social+Organic, total digital y total Blended.</p>
+                    </article>
+                    <article class="info-card bg-orange-50 p-6 rounded-lg shadow-sm border-l-4 border-orange-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusión Clave del Mes' data-lang-en='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Key Conclusion of the Month' data-lang-pt='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusão Chave do Mês'><i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusión Clave del Mes</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Se reforzó el valor de <strong>JBL</strong> como la promoción <strong>'héroe'</strong> capaz de entregar resultados saludables incluso con una inversión total moderada, y se consolidó el patrón observado en marzo sobre el impacto de la inversión en el volumen de leads." data-lang-en="The value of <strong>JBL</strong> as the <strong>'hero'</strong> promotion was reinforced, capable of delivering healthy results even with a moderate total investment, and the pattern observed in March regarding the impact of investment on lead volume was consolidated." data-lang-pt="Reforçou-se o valor da <strong>JBL</strong> como a promoção <strong>'herói'</strong>, capaz de entregar resultados saudáveis mesmo com um investimento total moderado, e consolidou-se o padrão observado em março sobre o impacto do investimento no volume de leads.">Se reforzó el valor de <strong>JBL</strong> como la promoción <strong>'héroe'</strong> capaz de entregar resultados saludables incluso con una inversión total moderada, y se consolidó el patrón observado en marzo sobre el impacto de la inversión en el volumen de leads.</p>
+                    </article>
+                </div>
+            </section>
+
+             <!-- Mayo -->
+            <section class="timeline-item mb-16 grid grid-cols-1 md:grid-cols-6 gap-4 reveal">
+                <div class="timeline-dot"></div>
+                <div class="md:col-span-2 md:text-right md:pr-8">
+                    <h2 class="text-4xl font-bold brand-blue" data-lang-es="Mayo" data-lang-en="May" data-lang-pt="Maio">Mayo</h2>
+                    <p class="text-xl font-semibold brand-orange mt-1" data-lang-es="Inversión TV: $278.2K" data-lang-en="TV Investment: $278.2K" data-lang-pt="Investimento em TV: $278.2K">Inversión TV: $278.2K</p>
+                    <i class="fas fa-exclamation-triangle text-6xl text-blue-100 mt-4"></i>
+                </div>
+                <div class="md:col-span-4 md:pl-8 space-y-6">
+                    <article class="info-card bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalle de la Inversión y Estrategia' data-lang-en='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Investment and Strategy Details' data-lang-pt='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalhes do Investimento e Estratégia'><i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalle de la Inversión y Estrategia</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="La estrategia resultó en un gasto offline de <strong>-9% vs. YOY</strong>. Se probó <strong>YT Brandlift</strong> enfocado solo en Rio de Janeiro (<strong>+$5K</strong>)." data-lang-en="The strategy resulted in an offline spend of <strong>-9% vs. YOY</strong>. A <strong>YT Brandlift</strong> test was conducted, focused only on Rio de Janeiro (<strong>+$5K</strong>)." data-lang-pt="A estratégia resultou em um gasto offline de <strong>-9% vs. YOY</strong>. Foi testado o <strong>YT Brandlift</strong> focado apenas no Rio de Janeiro (<strong>+$5K</strong>).">La estrategia resultó en un gasto offline de <strong>-9% vs. YOY</strong>. Se probó <strong>YT Brandlift</strong> enfocado solo en Rio de Janeiro (<strong>+$5K</strong>).</p>
+                    </article>
+                    <article class="info-card bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análisis de Resultados' data-lang-en='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Results Analysis' data-lang-pt='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análise de Resultados'><i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análisis de Resultados</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Con una reducción del <strong>-9%</strong> en TV Cable, los <strong>Branded Leads</strong> cayeron un <strong>-14% YOY</strong>. Este resultado, sumado a una menor conversión YOY y mayor gasto en SEM, dejó a los indicadores asociados a ventas en un nivel que no alcanzó el rendimiento del año anterior. Ninguna de las métricas clave alcanzó el objetivo del Budget." data-lang-en="With a <strong>-9%</strong> reduction in TV Cable, <strong>Branded Leads</strong> fell by <strong>-14% YOY</strong>. This result, combined with a lower YOY conversion and higher SEM spend, left sales-related indicators at a level that did not match the previous year's performance. None of the key metrics met the Budget target." data-lang-pt="Com uma redução de <strong>-9%</strong> em TV a Cabo, os <strong>Branded Leads</strong> caíram <strong>-14% YOY</strong>. Este resultado, somado a uma menor conversão YOY e maior gasto em SEM, deixou os indicadores associados a vendas em um nível que não alcançou o desempenho do ano anterior. Nenhuma das métricas-chave atingiu a meta do Orçamento.">Con una reducción del <strong>-9%</strong> en TV Cable, los <strong>Branded Leads</strong> cayeron un <strong>-14% YOY</strong>. Este resultado, sumado a una menor conversión YOY y mayor gasto en SEM, dejó a los indicadores asociados a ventas en un nivel que no alcanzó el rendimiento del año anterior. Ninguna de las métricas clave alcanzó el objetivo del Budget.</p>
+                    </article>
+                    <article class="info-card bg-green-50 p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-trophy mr-3 text-green-500"></i>Rendimiento Comparativo' data-lang-en='<i class="fas fa-trophy mr-3 text-green-500"></i>Comparative Performance' data-lang-pt='<i class="fas fa-trophy mr-3 text-green-500"></i>Desempenho Comparativo'><i class="fas fa-trophy mr-3 text-green-500"></i>Rendimiento Comparativo</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="No obstante, nuestro <strong>Branded CMPs</strong> y margen fue mejor que Paid Social+Organic, total digital y total Blended." data-lang-en="Nevertheless, our <strong>Branded CMPs</strong> and margin were better than Paid Social+Organic, total digital, and total Blended." data-lang-pt="No entanto, nossos <strong>Branded CMPs</strong> e margem foram melhores que Paid Social+Organic, digital total e Blended total.">No obstante, nuestro <strong>Branded CMPs</strong> y margen fue mejor que Paid Social+Organic, total digital y total Blended.</p>
+                    </article>
+                    <article class="info-card bg-orange-50 p-6 rounded-lg shadow-sm border-l-4 border-orange-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusión Clave del Mes' data-lang-en='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Key Conclusion of the Month' data-lang-pt='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusão Chave do Mês'><i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusión Clave del Mes</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Se observó que sin el soporte de una promoción de alto impacto como <strong>JBL</strong>, la sensibilidad del volumen de leads ante recortes de inversión parece ser mayor, superando la correlación aproximada de 1:1 vista en meses anteriores." data-lang-en="It was observed that without the support of a high-impact promotion like <strong>JBL</strong>, the sensitivity of lead volume to investment cuts appears to be greater, exceeding the approximate 1:1 correlation seen in previous months." data-lang-pt="Observou-se que sem o suporte de uma promoção de alto impacto como a <strong>JBL</strong>, a sensibilidade do volume de leads a cortes de investimento parece ser maior, superando a correlação aproximada de 1:1 vista em meses anteriores.">Se observó que sin el soporte de una promoción de alto impacto como <strong>JBL</strong>, la sensibilidad del volumen de leads ante recortes de inversión parece ser mayor, superando la correlación aproximada de 1:1 vista en meses anteriores.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Junio -->
+            <section class="timeline-item mb-16 grid grid-cols-1 md:grid-cols-6 gap-4 reveal">
+                <div class="timeline-dot"></div>
+                <div class="md:col-span-2 md:text-right md:pr-8">
+                    <h2 class="text-4xl font-bold brand-blue" data-lang-es="Junio" data-lang-en="June" data-lang-pt="Junho">Junio</h2>
+                    <p class="text-xl font-semibold brand-orange mt-1" data-lang-es="Inversión TV: $281.9K" data-lang-en="TV Investment: $281.9K" data-lang-pt="Investimento em TV: $281.9K">Inversión TV: $281.9K</p>
+                    <i class="fas fa-tv text-6xl text-blue-100 mt-4"></i>
+                </div>
+                <div class="md:col-span-4 md:pl-8 space-y-6">
+                     <article class="info-card bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalle de la Inversión y Estrategia' data-lang-en='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Investment and Strategy Details' data-lang-pt='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalhes do Investimento e Estratégia'><i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalle de la Inversión y Estrategia</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Con una inversión estable (<strong>-1% vs. YOY</strong>), el mes se centró en un test clave: ejecutar la <strong>'Oferta Especial'</strong> sin el apoyo del anuncio específico en TV." data-lang-en="With a stable investment (<strong>-1% vs. YOY</strong>), the month focused on a key test: running the <strong>'Special Offer'</strong> without the support of its specific TV ad." data-lang-pt="Com um investimento estável (<strong>-1% vs. YOY</strong>), o mês focou-se num teste chave: executar a <strong>'Oferta Especial'</strong> sem o apoio do anúncio específico na TV.">Con una inversión estable (<strong>-1% vs. YOY</strong>), el mes se centró en un test clave: ejecutar la <strong>'Oferta Especial'</strong> sin el apoyo del anuncio específico en TV.</p>
+                    </article>
+                    <article class="info-card bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análisis de Resultados' data-lang-en='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Results Analysis' data-lang-pt='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análise de Resultados'><i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análisis de Resultados</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="La tendencia a la baja YOY y vs. Budget continuó. La estrategia de <strong>'Oferta Especial'</strong> sin apoyo de TV no ayudó, acentuando aún más la caída de leads. Las otras iniciativas (podcasts, promo 'Cinema') no tuvieron un impacto suficiente para revertir la tendencia." data-lang-en="The downward trend YOY and vs. Budget continued. The <strong>'Special Offer'</strong> strategy without TV support did not help, further accentuating the drop in leads. Other initiatives (podcasts, 'Cinema' promo) did not have enough impact to reverse the trend." data-lang-pt="A tendência de queda YOY e vs. Orçamento continuou. A estratégia da <strong>'Oferta Especial'</strong> sem apoio na TV não ajudou, acentuando ainda mais a queda de leads. As outras iniciativas (podcasts, promoção 'Cinema') não tiveram impacto suficiente para reverter a tendência.">La tendencia a la baja YOY y vs. Budget continuó. La estrategia de <strong>'Oferta Especial'</strong> sin apoyo de TV no ayudó, acentuando aún más la caída de leads. Las otras iniciativas (podcasts, promo 'Cinema') no tuvieron un impacto suficiente para revertir la tendencia.</p>
+                    </article>
+                    <article class="info-card bg-green-50 p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-trophy mr-3 text-green-500"></i>Rendimiento Comparativo' data-lang-en='<i class="fas fa-trophy mr-3 text-green-500"></i>Comparative Performance' data-lang-pt='<i class="fas fa-trophy mr-3 text-green-500"></i>Desempenho Comparativo'><i class="fas fa-trophy mr-3 text-green-500"></i>Rendimiento Comparativo</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Aun así, nuestro <strong>Branded CMPs</strong> y margen fue mejor que Paid Social+Organic, total digital y total Blended." data-lang-en="Even so, our <strong>Branded CMPs</strong> and margin were better than Paid Social+Organic, total digital, and total Blended." data-lang-pt="Mesmo assim, nossos <strong>Branded CMPs</strong> e margem foram melhores que Paid Social+Organic, digital total e Blended total.">Aun así, nuestro <strong>Branded CMPs</strong> y margen fue mejor que Paid Social+Organic, total digital y total Blended.</p>
+                    </article>
+                    <article class="info-card bg-orange-50 p-6 rounded-lg shadow-sm border-l-4 border-orange-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusión Clave del Mes' data-lang-en='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Key Conclusion of the Month' data-lang-pt='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusão Chave do Mês'><i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusión Clave del Mes</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="La prueba de ejecutar una promoción sin su soporte creativo específico en TV demostró ser <strong>contraproducente</strong> para el volumen de leads, subrayando la importancia crítica de <strong>alinear el mensaje publicitario con la oferta comercial</strong>." data-lang-en="The test of running a promotion without its specific creative support on TV proved to be <strong>counterproductive</strong> for lead volume, highlighting the critical importance of <strong>aligning the advertising message with the commercial offer</strong>." data-lang-pt="O teste de executar uma promoção sem seu suporte criativo específico na TV provou ser <strong>contraproducente</strong> para o volume de leads, ressaltando a importância crítica de <strong>alinhar a mensagem publicitária com a oferta comercial</strong>.">La prueba de ejecutar una promoción sin su soporte creativo específico en TV demostró ser <strong>contraproducente</strong> para el volumen de leads, subrayando la importancia crítica de <strong>alinear el mensaje publicitario con la oferta comercial</strong>.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Julio -->
+            <section class="timeline-item mb-16 grid grid-cols-1 md:grid-cols-6 gap-4 reveal">
+                <div class="timeline-dot"></div>
+                <div class="md:col-span-2 md:text-right md:pr-8">
+                    <h2 class="text-4xl font-bold brand-blue" data-lang-es="Julio" data-lang-en="July" data-lang-pt="Julho">Julio</h2>
+                    <p class="text-xl font-semibold brand-orange mt-1" data-lang-es="Inversión TV: $299.8K" data-lang-en="TV Investment: $299.8K" data-lang-pt="Investimento em TV: $299.8K">Inversión TV: $299.8K</p>
+                    <i class="fas fa-redo-alt text-6xl text-blue-100 mt-4"></i>
+                </div>
+                <div class="md:col-span-4 md:pl-8 space-y-6">
+                    <article class="info-card bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalle de la Inversión y Estrategia' data-lang-en='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Investment and Strategy Details' data-lang-pt='<i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalhes do Investimento e Estratégia'><i class="fas fa-sitemap mr-3 text-blue-400"></i>Detalle de la Inversión y Estrategia</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Con una inversión de <strong>-5% vs. YOY</strong>, se repitió la prueba de ejecutar una promoción (<strong>'60% Off'</strong>) sin su soporte publicitario específico en TV y se realizó otro test de <strong>YT Brandlift</strong> en Sao Paulo." data-lang-en="With an investment of <strong>-5% vs. YOY</strong>, the test of running a promotion (<strong>'60% Off'</strong>) without its specific advertising support on TV was repeated, and another <strong>YT Brandlift</strong> test was conducted in Sao Paulo." data-lang-pt="Com um investimento de <strong>-5% vs. YOY</strong>, repetiu-se o teste de executar uma promoção (<strong>'60% Off'</strong>) sem seu suporte publicitário específico na TV e realizou-se outro teste de <strong>YT Brandlift</strong> em São Paulo.">Con una inversión de <strong>-5% vs. YOY</strong>, se repitió la prueba de ejecutar una promoción (<strong>'60% Off'</strong>) sin su soporte publicitario específico en TV y se realizó otro test de <strong>YT Brandlift</strong> en Sao Paulo.</p>
+                    </article>
+                    <article class="info-card bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análisis de Resultados' data-lang-en='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Results Analysis' data-lang-pt='<i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análise de Resultados'><i class="fas fa-chart-pie mr-3 text-blue-400"></i>Análisis de Resultados</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="La estrategia de promoción sin apoyo específico en TV ocasionó nuevamente una disminución en los <strong>Branded Leads</strong>. El test de <strong>YT Brandlift</strong> no generó influencia visible y el rendimiento de <strong>SEM-Brand</strong> fue incluso mejor en el resto del país." data-lang-en="The strategy of a promotion without specific TV support once again caused a decrease in <strong>Branded Leads</strong>. The <strong>YT Brandlift</strong> test generated no visible influence, and the performance of <strong>SEM-Brand</strong> was even better in the rest of the country." data-lang-pt="A estratégia de promoção sem apoio específico na TV ocasionou novamente uma diminuição nos <strong>Branded Leads</strong>. O teste de <strong>YT Brandlift</strong> não gerou influência visível e o desempenho do <strong>SEM-Brand</strong> foi ainda melhor no resto do país.">La estrategia de promoción sin apoyo específico en TV ocasionó nuevamente una disminución en los <strong>Branded Leads</strong>. El test de <strong>YT Brandlift</strong> no generó influencia visible y el rendimiento de <strong>SEM-Brand</strong> fue incluso mejor en el resto del país.</p>
+                    </article>
+                     <article class="info-card bg-green-50 p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-trophy mr-3 text-green-500"></i>Rendimiento Comparativo' data-lang-en='<i class="fas fa-trophy mr-3 text-green-500"></i>Comparative Performance' data-lang-pt='<i class="fas fa-trophy mr-3 text-green-500"></i>Desempenho Comparativo'><i class="fas fa-trophy mr-3 text-green-500"></i>Rendimiento Comparativo</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Como en todos los meses, nuestro <strong>Branded CMPs</strong> y margen fue mejor que Paid Social+Organic, total digital y total Blended." data-lang-en="As in all months, our <strong>Branded CMPs</strong> and margin were better than Paid Social+Organic, total digital, and total Blended." data-lang-pt="Como em todos os meses, nossos <strong>Branded CMPs</strong> e margem foram melhores que Paid Social+Organic, digital total e Blended total.">Como en todos los meses, nuestro <strong>Branded CMPs</strong> y margen fue mejor que Paid Social+Organic, total digital y total Blended.</p>
+                    </article>
+                    <article class="info-card bg-orange-50 p-6 rounded-lg shadow-sm border-l-4 border-orange-500">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800 flex items-center" data-lang-es='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusión Clave del Mes' data-lang-en='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Key Conclusion of the Month' data-lang-pt='<i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusão Chave do Mês'><i class="fas fa-lightbulb mr-3 text-orange-500"></i>Conclusión Clave del Mes</h3>
+                        <p class="text-gray-700 leading-relaxed" data-lang-es="Se confirmó el aprendizaje de junio sobre la <strong>ineficacia de los anuncios genéricos</strong> durante promociones específicas. El patrón de bajo rendimiento de los tests de <strong>YT Brandlift</strong> sugiere que esta táctica, en sus ejecuciones actuales, no es un motor eficiente de respuesta directa." data-lang-en="The learning from June regarding the <strong>ineffectiveness of generic ads</strong> during specific promotions was confirmed. The pattern of poor performance from the <strong>YT Brandlift</strong> tests suggests that this tactic, in its current executions, is not an efficient driver of direct response." data-lang-pt="Confirmou-se o aprendizado de junho sobre a <strong>ineficácia de anúncios genéricos</strong> durante promoções específicas. O padrão de baixo desempenho dos testes de <strong>YT Brandlift</strong> sugere que essa tática, em suas execuções atuais, não é um motor eficiente de resposta direta.">Se confirmó el aprendizaje de junio sobre la <strong>ineficacia de los anuncios genéricos</strong> durante promociones específicas. El patrón de bajo rendimiento de los tests de <strong>YT Brandlift</strong> sugiere que esta táctica, en sus ejecuciones actuales, no es un motor eficiente de respuesta directa.</p>
+                    </article>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Conclusion Final -->
+        <div class="mt-16 reveal">
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12 border-t-4 border-brand-orange">
+                <div class="text-center mb-8">
+                    <i class="fas fa-brain text-4xl brand-orange"></i>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mt-4" data-lang-es="Conclusión Estratégica General" data-lang-en="Overall Strategic Conclusion" data-lang-pt="Conclusão Estratégica Geral">Conclusión Estratégica General</h2>
+                    <p class="text-lg text-gray-600 mt-2" data-lang-es="Aprendizajes Fundamentales (Enero - Julio)" data-lang-en="Key Learnings (January - July)" data-lang-pt="Aprendizados Fundamentais (Janeiro - Julho)">Aprendizajes Fundamentales (Enero - Julio)</p>
+                </div>
+                <div class="space-y-6">
+                    <p class="text-center text-gray-700" data-lang-es="El análisis de los primeros siete meses del año nos revela varios patrones y aprendizajes consistentes que son fundamentales para nuestra planificación futura:" data-lang-en="The analysis of the first seven months of the year reveals several consistent patterns and learnings that are fundamental for our future planning:" data-lang-pt="A análise dos primeiros sete meses do ano revela vários padrões e aprendizados consistentes que são fundamentais para o nosso planejamento futuro:">El análisis de los primeros siete meses del año nos revela varios patrones y aprendizajes consistentes que son fundamentales para nuestra planificación futura:</p>
+                    <ul id="conclusion-list" class="space-y-4 text-gray-700 list-inside">
+                        <li class="flex items-start" data-lang-es="<i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Fuerte Correlación entre Inversión en TV y Volumen de Leads:</strong> El hallazgo más consistente, visible sobre todo en marzo y abril, es la tendencia que sugiere una relación casi directa entre el porcentaje de inversión en TV (vs. YOY) y el porcentaje de variación en el volumen de Branded Leads. Esto nos proporciona un modelo de referencia para estimar el impacto de futuros ajustes presupuestarios.</span>" data-lang-en="<i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Strong Correlation between TV Investment and Lead Volume:</strong> The most consistent finding, especially visible in March and April, is the trend suggesting a nearly direct relationship between the percentage of TV investment (vs. YOY) and the percentage change in Branded Leads volume. This provides a benchmark model for estimating the impact of future budget adjustments.</span>" data-lang-pt="<i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Forte Correlação entre Investimento em TV e Volume de Leads:</strong> A descoberta mais consistente, visível especialmente em março e abril, é a tendência que sugere uma relação quase direta entre o percentual de investimento em TV (vs. YOY) e o percentual de variação no volume de Branded Leads. Isso nos fornece um modelo de referência para estimar o impacto de futuros ajustes orçamentários.</span>"><i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Fuerte Correlación entre Inversión en TV y Volumen de Leads:</strong> El hallazgo más consistente, visible sobre todo en marzo y abril, es la tendencia que sugiere una relación casi directa entre el porcentaje de inversión en TV (vs. YOY) y el porcentaje de variación en el volumen de Branded Leads. Esto nos proporciona un modelo de referencia para estimar el impacto de futuros ajustes presupuestarios.</span></li>
+                        <li class="flex items-start" data-lang-es="<i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>El Alineamiento Creativo es un Factor Crítico de Éxito:</strong> Las pruebas realizadas en junio y julio demostraron de manera concluyente que la efectividad de nuestra inversión en TV disminuye significativamente cuando el mensaje publicitario (creatividad) no está directamente alineado con la oferta comercial vigente. Usar anuncios genéricos durante una promoción específica no sostiene el volumen de leads.</span>" data-lang-en="<i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Creative Alignment is a Critical Success Factor:</strong> The tests conducted in June and July conclusively demonstrated that the effectiveness of our TV investment significantly decreases when the advertising message (creative) is not directly aligned with the current commercial offer. Using generic ads during a specific promotion does not sustain lead volume.</span>" data-lang-pt="<i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>O Alinhamento Criativo é um Fator Crítico de Sucesso:</strong> Os testes realizados em junho e julho demonstraram de forma conclusiva que a eficácia do nosso investimento em TV diminui significativamente quando a mensagem publicitária (criativo) não está diretamente alinhada com a oferta comercial vigente. Usar anúncios genéricos durante uma promoção específica não sustenta o volume de leads.</span>"><i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>El Alineamiento Creativo es un Factor Crítico de Éxito:</strong> Las pruebas realizadas en junio y julio demostraron de manera concluyente que la efectividad de nuestra inversión en TV disminuye significativamente cuando el mensaje publicitario (creatividad) no está directamente alineado con la oferta comercial vigente. Usar anuncios genéricos durante una promoción específica no sostiene el volumen de leads.</span></li>
+                        <li class="flex items-start" data-lang-es="<i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Identificación de Pilares Estratégicos ('Héroes'):</strong> La promoción JBL se ha consolidado como un activo de altísimo impacto, capaz de generar resultados saludables y un gran interés en el consumidor, justificando su rol central en la planificación. Por otro lado, nuevas iniciativas como los podcasts han mostrado un potencial muy prometedor para generar interés y leads, aunque su medición precisa requiere más refinamiento.</span>" data-lang-en="<i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Identification of Strategic Pillars ('Heroes'):</strong> The JBL promotion has established itself as a high-impact asset, capable of generating healthy results and great consumer interest, justifying its central role in planning. On the other hand, new initiatives like podcasts have shown very promising potential for generating interest and leads, although their precise measurement requires more refinement.</span>" data-lang-pt="<i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Identificação de Pilares Estratégicos ('Heróis'):</strong> A promoção JBL consolidou-se como um ativo de altíssimo impacto, capaz de gerar resultados saudáveis e grande interesse no consumidor, justificando seu papel central no planejamento. Por outro lado, novas iniciativas como os podcasts mostraram um potencial muito promissor para gerar interesse e leads, embora sua medição precisa requeira mais refinamento.</span>"><i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Identificación de Pilares Estratégicos ('Héroes'):</strong> La promoción JBL se ha consolidado como un activo de altísimo impacto, capaz de generar resultados saludables y un gran interés en el consumidor, justificando su rol central en la planificación. Por otro lado, nuevas iniciativas como los podcasts han mostrado un potencial muy prometedor para generar interés y leads, aunque su medición precisa requiere más refinamiento.</span></li>
+                        <li class="flex items-start" data-lang-es="<i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Desafíos Constantes en la Rentabilidad:</strong> Un patrón transversal en casi todos los meses es el impacto determinante de dos variables en la rentabilidad final: la tasa de conversión y el gasto en SEM-Brand. Aun en meses con excelente generación de leads, como enero, estos dos factores han representado el principal desafío para alcanzar los objetivos de margen y eficiencia.</span>" data-lang-en="<i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Constant Profitability Challenges:</strong> A cross-cutting pattern in almost all months is the decisive impact of two variables on final profitability: the conversion rate and the SEM-Brand spend. Even in months with excellent lead generation, like January, these two factors have been the main challenge to achieving margin and efficiency goals.</span>" data-lang-pt="<i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Desafios Constantes na Rentabilidade:</strong> Um padrão transversal em quase todos os meses é o impacto determinante de duas variáveis na rentabilidade final: a taxa de conversão e o gasto com SEM-Brand. Mesmo em meses com excelente geração de leads, como janeiro, esses dois fatores representaram o principal desafio para alcançar as metas de margem e eficiência.</span>"><i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Desafíos Constantes en la Rentabilidad:</strong> Un patrón transversal en casi todos los meses es el impacto determinante de dos variables en la rentabilidad final: la tasa de conversión y el gasto en SEM-Brand. Aun en meses con excelente generación de leads, como enero, estos dos factores han representado el principal desafío para alcanzar los objetivos de margen y eficiencia.</span></li>
+                        <li class="flex items-start" data-lang-es="<i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Rendimiento Sostenido del Canal:</strong> A pesar de los desafíos internos de rentabilidad, es un hallazgo importante y consistente que, mes a mes, el canal de TV (Branded) muestra una mayor eficiencia en términos de CMPs y margen en comparación con los promedios de Paid Social+Organic, Digital Total y el Blended general.</span>" data-lang-en="<i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Sustained Channel Performance:</strong> Despite internal profitability challenges, it is an important and consistent finding that, month after month, the TV channel (Branded) shows greater efficiency in terms of CMPs and margin compared to the averages of Paid Social+Organic, Total Digital, and the overall Blended.</span>" data-lang-pt="<i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Desempenho Sustentado do Canal:</strong> Apesar dos desafios internos de rentabilidade, é uma descoberta importante e consistente que, mês a mês, o canal de TV (Branded) mostra maior eficiência em termos de CMPs e margem em comparação com as médias de Paid Social+Organic, Digital Total e o Blended geral.</span>"><i class='fas fa-check-circle text-blue-500 mt-1 mr-3'></i><span><strong>Rendimiento Sostenido del Canal:</strong> A pesar de los desafíos internos de rentabilidad, es un hallazgo importante y consistente que, mes a mes, el canal de TV (Branded) muestra una mayor eficiencia en términos de CMPs y margen en comparación con los promedios de Paid Social+Organic, Digital Total y el Blended general.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    
+    <footer class="text-center py-6 bg-gray-800 text-white mt-12">
+        <p>&copy; 2025 Open English. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const buttons = {
+            es: document.getElementById('btn-es'),
+            en: document.getElementById('btn-en'),
+            pt: document.getElementById('btn-pt')
+        };
+
+        function switchLanguage(lang) {
+            // Select all elements that have language data
+            const elements = document.querySelectorAll('[data-lang-es]');
+            
+            elements.forEach(el => {
+                const text = el.getAttribute(`data-lang-${lang}`);
+                if (text) {
+                    // Use innerHTML to correctly render tags like <i> and <strong>
+                    el.innerHTML = text;
+                }
+            });
+
+            // Update active button style
+            Object.values(buttons).forEach(button => {
+                button.classList.remove('bg-brand-blue', 'text-white');
+                button.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            buttons[lang].classList.add('bg-brand-blue', 'text-white');
+            buttons[lang].classList.remove('bg-gray-200', 'text-gray-700');
+        }
+
+
+        // Intersection Observer for fade-in animations
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
